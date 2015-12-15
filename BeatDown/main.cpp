@@ -12,6 +12,7 @@
 #include "cSprite.h"
 #include "asteroidsGame.h"
 #include "cBeatMGR.h"
+#include "cHitsoundManager.h"
 
 
 int WINAPI WinMain(HINSTANCE hInstance,
@@ -79,7 +80,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	//	theGameTextures[tCount]->createTexture(strTextures[tCount]);
 	//}
 
-
+	HitsoundManager::getInstance();
 	static BeatManager* beatMGR = BeatManager::getInstance();
 	/*beatMGR->loadSongByPath("Songs/74671 P-Light - TRIGGER-HAPPY/PLight - TRIGGERHAPPY (MineC24) [EXHAUST].osu");
 	beatMGR->loadSongByPath("Songs/163078 LiSA - Rising Hope (TV Size)/LiSA - Rising Hope (TV Size) (xChippy) [Hope].osu");

@@ -122,6 +122,7 @@
     <ClInclude Include="cBeatMGR.h" />
     <ClInclude Include="cBkGround.h" />
     <ClInclude Include="cBullet.h" />
+    <ClInclude Include="cHitsoundManager.h" />
     <ClInclude Include="cInputMgr.h" />
     <ClInclude Include="cSprite.h" />
     <ClInclude Include="cTexture.h" />
@@ -139,6 +140,7 @@
     <ClCompile Include="cBeatMGR.cpp" />
     <ClCompile Include="cBkGround.cpp" />
     <ClCompile Include="cBullet.cpp" />
+    <ClCompile Include="cHitsoundManager.cpp" />
     <ClCompile Include="cInputMgr.cpp" />
     <ClCompile Include="cSprite.cpp" />
     <ClCompile Include="cTexture.cpp" />

@@ -60,7 +60,7 @@ void cBeat::update(float currentOffset)
 	setSpritePos(glm::vec2(spritePos2D.x, y));
 	//spritePos2D += spriteTranslation * deltaTime;
 	if (spritePos2D.y >= 600 && !soundPlayed) {
-		//play hit sound
+		HitsoundManager::getInstance()->playSound(1);
 		soundPlayed = true;
 	}
 	setBoundingRect(&boundingRect);

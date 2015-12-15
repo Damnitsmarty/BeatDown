@@ -1,5 +1,6 @@
 #pragma once
 #include "cSprite.h"
+#include "cHitsoundManager.h"
 
 static glm::vec2 beatTextureSize = glm::vec2(120,40);
 
