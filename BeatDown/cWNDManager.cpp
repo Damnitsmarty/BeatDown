@@ -249,6 +249,10 @@ LRESULT CALLBACK cWNDManager::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARA
 	}
 
 		break;
+	case WM_KEYUP:
+	{
+		pInstance->m_InputMgr->keyUp(wParam);
+	}
 	default:
 		break;
 	}

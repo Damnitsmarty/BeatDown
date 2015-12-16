@@ -72,7 +72,7 @@ void BeatManager::scheduleBeat(int offset, int xpos) {
 
 	float of = float(offset) / 1000;
 	float sp = getSpeed(offset);
-	float ypos = 600 - of * sp;
+	float ypos = playFieldSize.y - of * sp;
 	ypos -= sp * fileData.audioLeadIn/1000;
 
 	cBeat* newBeat = new cBeat(beatTexture->getTexture(), offset, getSpeed(offset), xOffset+xpos,ypos);	// create the beat
@@ -80,7 +80,7 @@ void BeatManager::scheduleBeat(int offset, int xpos) {
 	beatsVector.push_back(newBeat);															// and add it to the queue
 }
 
-void BeatManager::update(float elapsedTime) {
+void BeatManager::update() {
 	background.render();
 	overlay.render();
 	if (!isPlaying) return;										// break if the song isn't playing

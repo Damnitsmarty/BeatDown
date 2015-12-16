@@ -56,12 +56,15 @@ Update the sprite position
 void cBeat::update(float currentOffset)
 {
 	float mult = float(offset) / 1000 - float(currentOffset) / 1000;
-	float y = 600.0 - float(speed)*mult;
-	setSpritePos(glm::vec2(spritePos2D.x, y));
-	//spritePos2D += spriteTranslation * deltaTime;
-	if (spritePos2D.y >= 600 && !soundPlayed) {
+	float y = playFieldSize.y - float(speed)*mult;
+	if (y > playFieldSize.y && !soundPlayed) {
+		//check for collision with the player;
+		RECT playerRect = cRocket::getInstance()->getBoundingRect();
+		
 		HitsoundManager::getInstance()->playSound(1);
 		soundPlayed = true;
 	}
+	setSpritePos(glm::vec2(spritePos2D.x, y));
+
 	setBoundingRect(&boundingRect);
 }

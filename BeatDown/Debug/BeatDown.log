@@ -1,15 +1,24 @@
-﻿Build started 15-Dec-15 00:08:26.
+﻿Build started 16-Dec-15 11:34:50.
      1>Project "C:\Users\fluf9\OneDrive\Документи\Visual Studio 2015\Projects\BeatDown\BeatDown\BeatDown.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt cHitsoundManager.cpp
-         cHitsoundManager.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt cBeat.cpp
+         cBeat.cpp
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\cbeat.cpp(12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\cbeat.cpp(17): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\cbeat.cpp(37): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\cbeat.cpp(39): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\cbeat.cpp(41): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\cbeat.cpp(43): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\fluf9\OneDrive\Документи\Visual Studio 2015\Projects\BeatDown\Debug\BeatDown.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\fluf9\OneDrive\Документи\Visual Studio 2015\Projects\BeatDown\Debug\BeatDown.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\fluf9\OneDrive\Документи\Visual Studio 2015\Projects\BeatDown\Debug\BeatDown.lib" /MACHINE:X86 Debug\cBeat.obj
          Debug\cBeatMGR.obj
          Debug\cBkGround.obj
          Debug\cBullet.obj
+         Debug\cFont.obj
+         Debug\cFontMgr.obj
          Debug\cHitsoundManager.obj
          Debug\cInputMgr.obj
+         Debug\cRocket.obj
          Debug\cSprite.obj
          Debug\cTexture.obj
          Debug\cWNDManager.obj
@@ -22,9 +31,10 @@
          ILU.lib
          ILUT.lib
          LibMP3DLL.lib
+         Libraries\ftgl.lib
          BeatDown.vcxproj -> C:\Users\fluf9\OneDrive\Документи\Visual Studio 2015\Projects\BeatDown\Debug\BeatDown.exe
      1>Done Building Project "C:\Users\fluf9\OneDrive\Документи\Visual Studio 2015\Projects\BeatDown\BeatDown\BeatDown.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.70
+Time Elapsed 00:00:01.61

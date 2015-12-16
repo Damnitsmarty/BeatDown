@@ -1,0 +1,82 @@
+﻿Build started 15-Dec-15 12:31:04.
+     1>Project "C:\Users\fluf9\OneDrive\Документи\Visual Studio 2015\Projects\BeatDown\BeatDown\BeatDown.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt cBeat.cpp cBeatMGR.cpp cBkGround.cpp cBullet.cpp cHitsoundManager.cpp cInputMgr.cpp cSprite.cpp cTexture.cpp cWNDManager.cpp main.cpp Mp3.cpp stdafx.cpp windowOGL.cpp
+         cBeat.cpp
+     1>cBeat.cpp(12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>cBeat.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>cBeat.cpp(37): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>cBeat.cpp(39): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>cBeat.cpp(41): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>cBeat.cpp(43): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>cBeat.cpp(59): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+         cBeatMGR.cpp
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\OsuFileParser.h(13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\OsuFileParser.h(40): warning C4129: ':': unrecognized character escape sequence
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\OsuFileParser.h(43): warning C4129: ':': unrecognized character escape sequence
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\OsuFileParser.h(101): warning C4129: '/': unrecognized character escape sequence
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\OsuFileParser.h(131): warning C4091: 'static ': ignored on left of 'OsuFileParser' when no variable is declared
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\OsuFileParser.h(69): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     1>cBeatMGR.cpp(33): warning C4018: '<': signed/unsigned mismatch
+     1>cBeatMGR.cpp(35): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+     1>cBeatMGR.cpp(51): warning C4018: '<': signed/unsigned mismatch
+     1>cBeatMGR.cpp(55): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+     1>cBeatMGR.cpp(57): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+     1>cBeatMGR.cpp(78): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+         cBkGround.cpp
+     1>cBkGround.cpp(18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+     1>cBkGround.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+         cBullet.cpp
+     1>cBullet.cpp(23): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>cBullet.cpp(25): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>cBullet.cpp(27): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>cBullet.cpp(29): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+         cHitsoundManager.cpp
+         cInputMgr.cpp
+         cSprite.cpp
+     1>cSprite.cpp(106): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>cSprite.cpp(107): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>cSprite.cpp(180): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>cSprite.cpp(182): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>cSprite.cpp(184): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>cSprite.cpp(206): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+         cTexture.cpp
+         cWNDManager.cpp
+         main.cpp
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\OsuFileParser.h(13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\OsuFileParser.h(40): warning C4129: ':': unrecognized character escape sequence
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\OsuFileParser.h(43): warning C4129: ':': unrecognized character escape sequence
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\OsuFileParser.h(101): warning C4129: '/': unrecognized character escape sequence
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\OsuFileParser.h(131): warning C4091: 'static ': ignored on left of 'OsuFileParser' when no variable is declared
+     1>c:\users\fluf9\onedrive\документи\visual studio 2015\projects\beatdown\beatdown\OsuFileParser.h(69): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+         Mp3.cpp
+         stdafx.cpp
+         windowOGL.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\fluf9\OneDrive\Документи\Visual Studio 2015\Projects\BeatDown\Release\BeatDown.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\fluf9\OneDrive\Документи\Visual Studio 2015\Projects\BeatDown\Release\BeatDown.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\fluf9\OneDrive\Документи\Visual Studio 2015\Projects\BeatDown\Release\BeatDown.lib" /MACHINE:X86 /SAFESEH Release\cBeat.obj
+         Release\cBeatMGR.obj
+         Release\cBkGround.obj
+         Release\cBullet.obj
+         Release\cHitsoundManager.obj
+         Release\cInputMgr.obj
+         Release\cSprite.obj
+         Release\cTexture.obj
+         Release\cWNDManager.obj
+         Release\main.obj
+         Release\Mp3.obj
+         Release\stdafx.obj
+         Release\windowOGL.obj
+         DevIL.lib
+         freeglut.lib
+         ILU.lib
+         ILUT.lib
+         LibMP3DLL.lib
+         Generating code
+         All 1511 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+         Finished generating code
+         BeatDown.vcxproj -> C:\Users\fluf9\OneDrive\Документи\Visual Studio 2015\Projects\BeatDown\Release\BeatDown.exe
+     1>Done Building Project "C:\Users\fluf9\OneDrive\Документи\Visual Studio 2015\Projects\BeatDown\BeatDown\BeatDown.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:11.50

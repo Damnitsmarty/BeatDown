@@ -14,7 +14,7 @@ cSprite.cpp
 */
 cSprite::cSprite() 			// Default constructor
 {
-
+	cSprite::m_InputMgr = cInputMgr::getInstance();
 	cSprite::spritePos2D.x = 0.0f;
 	cSprite::spritePos2D.y = 0.0f;
 	cSprite::setSpriteTexCoordData();

@@ -9,6 +9,8 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
+// Font
+#include "FTGL\ftgl.h"
 // Image Texture loading library
 #include "IL\il.h"
 #include "IL\ilu.h"

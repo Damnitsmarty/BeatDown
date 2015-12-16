@@ -44,7 +44,7 @@ private:
 			data->audioLeadIn = stoi(match.str(1));
 			return true;
 		}
-		else if (regex_match(line, match, regex(".*,\"(.*?)\""))) {
+		else if (regex_match(line, match, regex(".*?,\"(.*?)\",.*"))) {
 			data->backgroundPath = data->folderPath + match.str(1);
 			return true;
 		}

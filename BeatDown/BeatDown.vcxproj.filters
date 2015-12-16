@@ -63,6 +63,15 @@
     <ClInclude Include="cHitsoundManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cFont.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cFontMgr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cRocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cBkGround.cpp">
@@ -104,6 +113,15 @@
     <ClCompile Include="cHitsoundManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cFont.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cFontMgr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cRocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="DevIL.lib" />
@@ -111,5 +129,6 @@
     <Library Include="ILU.lib" />
     <Library Include="ILUT.lib" />
     <Library Include="LibMP3DLL.lib" />
+    <Library Include="Libraries\ftgl.lib" />
   </ItemGroup>
 </Project>

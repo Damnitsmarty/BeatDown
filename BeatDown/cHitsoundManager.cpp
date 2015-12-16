@@ -34,9 +34,6 @@ HitsoundManager::HitsoundManager(){
 
 
 void HitsoundManager::playSound(int sound){
-		//ensure currentSound is always within the vector size limits
-		currentSound = currentSound % emitters.size();
-
 		//Preload the next hitsound by setting its position to 0
 		Mp3* nextSound;
 		if (currentSound == emitters.size() - 1) nextSound = emitters[0];
@@ -48,7 +45,8 @@ void HitsoundManager::playSound(int sound){
 		//Play the current sound
 		emitters[currentSound]->Play();
 
-		currentSound++; //increment the counter
+		//increment the counter; ensure it stays within the vector size limits
+		currentSound = (currentSound + 1) % emitters.size(); 
 	}
 
 

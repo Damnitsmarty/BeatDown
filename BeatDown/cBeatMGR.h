@@ -16,13 +16,14 @@ public:
 	float getSpeed(int offset);
 	void playSong();
 	void scheduleBeat(int offset, int column);
-	void update(float elapsedTime);
+	void update();
 	vector<cBeat*> beatsVector;
 	bool isPlaying = false;
 
 	Mp3 song;
 	cBkGround background = NULL;
 	cBkGround overlay = cBkGround("Images/OL.png");
+
 private:
 	static BeatManager* pInstance;
 
@@ -33,7 +34,6 @@ private:
 	OsuFileData fileData;
 	
 
-	//Beat Positioning information:
-	glm::vec2 playFieldSize = glm::vec2(820,600); 
+	
 	
 };

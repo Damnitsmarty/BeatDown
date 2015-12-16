@@ -6,6 +6,24 @@ cRocket.cpp
 */
 #include "cRocket.h"
 
+cRocket* cRocket::instance = NULL;
+
+
+//constructor
+cRocket::cRocket()
+{
+	texture.createTexture(texturePath);
+	setTextureDimensions(160, texture.getTHeight());
+	setSpritePos(glm::vec2(1280 / 2 , 650));
+	setTexture(texture.getTexture());
+}
+
+cRocket* cRocket::getInstance() {
+	if (instance == NULL) instance = new cRocket();
+	return instance;
+}
+
+
 void cRocket::render()
 {
 	glPushMatrix();
@@ -41,62 +59,21 @@ Update the sprite position
 
 void cRocket::update(float deltaTime)
 {
-	if (m_InputMgr->isKeyDown(VK_RIGHT))
+	float x_change = 0;
+	if (m_InputMgr->isKeyDown(VK_RIGHT) || m_InputMgr->isKeyDown(int('D')))
 	{
-		spriteRotation += 5.0f;
+		x_change += 10.0f;
 	}
-	if (m_InputMgr->isKeyDown(VK_LEFT))
+	if (m_InputMgr->isKeyDown(VK_LEFT) || m_InputMgr->isKeyDown(int('A')))
 	{
-		spriteRotation -= 5.0f;
+		x_change -= 10.0f;
 	}
-	if (m_InputMgr->isKeyDown(VK_UP))
+	if (m_InputMgr->isKeyDown(VK_SHIFT) || m_InputMgr->isKeyDown(int('S')))
 	{
-		spriteTranslation = (glm::vec2(2.0f, 2.0f));
+		x_change *= 2;
 	}
-	if (m_InputMgr->isKeyDown(VK_DOWN))
-	{
-		spriteTranslation = -(glm::vec2(2.0f, 2.0f));
-	}
-	if (m_InputMgr->isKeyDown(int('A')))
-	{
-		spriteScaling += 0.2f;
-	}
-	if (m_InputMgr->isKeyDown(int('S')))
-	{
-		spriteScaling -= 0.2f;
-	}
+	spritePos2D += glm::vec2(x_change, 0);
 
-	if (m_InputMgr->isKeyDown(VK_SPACE))
-	{
-		theRocketBullets.push_back(new cBullet);
-		int numBullets = theRocketBullets.size() - 1;
-		theRocketBullets[numBullets]->setSpritePos(glm::vec2(spritePos2D.x + spriteCentre.x, spritePos2D.y));
-		theRocketBullets[numBullets]->setSpriteTranslation(glm::vec2(2.0f, 2.0f));
-		theRocketBullets[numBullets]->setTexture(theGameTextures[4]->getTexture());
-		theRocketBullets[numBullets]->setTextureDimensions(theGameTextures[4]->getTWidth(), theGameTextures[4]->getTHeight());
-		theRocketBullets[numBullets]->setSpriteCentre();
-		theRocketBullets[numBullets]->setBulletVelocity(glm::vec2(0.0f, 0.0f));
-		theRocketBullets[numBullets]->setSpriteRotation(getSpriteRotation());
-		theRocketBullets[numBullets]->setActive(true);
-		theRocketBullets[numBullets]->setMdlRadius();
-	}
-
-	if (spriteRotation > 360)
-	{
-		spriteRotation -= 360.0f;
-	}
-
-	glm::vec2 spriteVelocityAdd = glm::vec2(0.0f, 0.0f);
-	spriteVelocityAdd.x = (glm::sin(glm::radians(spriteRotation)));
-	spriteVelocityAdd.y = -(glm::cos(glm::radians(spriteRotation)));
-
-	spriteVelocityAdd *= spriteTranslation;
-
-	rocketVelocity += spriteVelocityAdd;
-
-	spritePos2D += rocketVelocity * deltaTime;
-
-	rocketVelocity *= 0.95;
 
 	/*
 	==============================================================
@@ -116,36 +93,18 @@ void cRocket::update(float deltaTime)
 	//	}
 	//}
 
-	vector<cBullet*>::iterator index = theRocketBullets.begin();
-	while( index != theRocketBullets.end())
-	{
-		if ((*index)->isActive() == false)
-		{
-			index = theRocketBullets.erase(index);
-		}
-		else
-		{
-			(*index)->update(deltaTime);
-			(*index)->render();
-			++index;
-		}
-	}
-}
-/*
-=================================================================
-  Sets the velocity for the rocket
-=================================================================
-*/
-void cRocket::setRocketVelocity(glm::vec2 rocketVel)
-{
-	rocketVelocity = rocketVel;
-}
-/*
-=================================================================
-  Gets the rocket velocity
-=================================================================
-*/
-glm::vec2 cRocket::getRocketVelocity()
-{
-	return rocketVelocity;
+//	vector<cBullet*>::iterator index = theRocketBullets.begin();
+//	while( index != theRocketBullets.end())
+//	{
+//		if ((*index)->isActive() == false)
+//		{
+//			index = theRocketBullets.erase(index);
+//		}
+//		else
+//		{
+//			(*index)->update(deltaTime);
+//			(*index)->render();
+//			++index;
+//		}
+//	}
 }

@@ -10,6 +10,7 @@ cBkGround::cBkGround(LPCSTR path)
 {
 	texture.createTexture(path);
 	
+	//Position the image so it covers the whole screen, retaining its aspect ratio
 	float ratio = float(texture.getTWidth()) / float(texture.getTHeight());
 	if (800 * ratio >= 1280) {
 		float actualHeight = 800;
@@ -27,10 +28,7 @@ cBkGround::cBkGround(LPCSTR path)
 	}
 
 	
-	setTexture(texture.getTexture());
-	//setTextureDimensions(1280, 800);
-	//setTextureDimensions(texture.getTWidth(), texture.getTHeight());
-	
+	setTexture(texture.getTexture());	
 }
 
 void cBkGround::render()

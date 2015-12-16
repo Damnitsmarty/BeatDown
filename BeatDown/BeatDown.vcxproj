@@ -122,8 +122,11 @@
     <ClInclude Include="cBeatMGR.h" />
     <ClInclude Include="cBkGround.h" />
     <ClInclude Include="cBullet.h" />
+    <ClInclude Include="cFont.h" />
+    <ClInclude Include="cFontMgr.h" />
     <ClInclude Include="cHitsoundManager.h" />
     <ClInclude Include="cInputMgr.h" />
+    <ClInclude Include="cRocket.h" />
     <ClInclude Include="cSprite.h" />
     <ClInclude Include="cTexture.h" />
     <ClInclude Include="cWNDManager.h" />
@@ -140,8 +143,11 @@
     <ClCompile Include="cBeatMGR.cpp" />
     <ClCompile Include="cBkGround.cpp" />
     <ClCompile Include="cBullet.cpp" />
+    <ClCompile Include="cFont.cpp" />
+    <ClCompile Include="cFontMgr.cpp" />
     <ClCompile Include="cHitsoundManager.cpp" />
     <ClCompile Include="cInputMgr.cpp" />
+    <ClCompile Include="cRocket.cpp" />
     <ClCompile Include="cSprite.cpp" />
     <ClCompile Include="cTexture.cpp" />
     <ClCompile Include="cWNDManager.cpp" />
@@ -156,6 +162,7 @@
     <Library Include="ILU.lib" />
     <Library Include="ILUT.lib" />
     <Library Include="LibMP3DLL.lib" />
+    <Library Include="Libraries\ftgl.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

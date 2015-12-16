@@ -11,6 +11,7 @@
 #include "cInputMgr.h"
 #include "cSprite.h"
 #include "asteroidsGame.h"
+#include "cFontMgr.h"
 #include "cBeatMGR.h"
 #include "cHitsoundManager.h"
 
@@ -34,6 +35,12 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 	// This is the input manager
 	static cInputMgr* Input = cInputMgr::getInstance();
+
+	// Load Font manager and fonts
+	static cFontMgr* FontManager = cFontMgr::getInstance();
+	FontManager->addFont("Regular", LPCSTR("Fonts/Aller_Rg.ttf"), 24);
+	FontManager->addFont("Light", LPCSTR("Fonts/Aller_Lt.ttf"), 24);
+		
 
     //The example OpenGL code
     windowOGL OGL;
@@ -65,30 +72,21 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	/* initialize random seed: */
 	srand((unsigned int)time(NULL));
 
-	// Create vector array of textures
-	//LPCSTR strTextures[] = { 
-	//	"Images\\beat.png",
-	//	"Images\\asteroid1.png", 
-	//	"Images\\asteroid2.png", 
-	//	"Images\\asteroid3.png", 
-	//	"Images\\asteroid4.png", 
-	//	"Images\\bullet.png" 
-	//};
-	//for (int tCount = 0; tCount < 5; tCount++)
-	//{
-	//	theGameTextures.push_back(new cTexture());
-	//	theGameTextures[tCount]->createTexture(strTextures[tCount]);
-	//}
 
+	//initialize the Hitsound manager
+	//it is only used by cBeat.cpp, so it is not needed as a variable
 	HitsoundManager::getInstance();
+
 	static BeatManager* beatMGR = BeatManager::getInstance();
-	/*beatMGR->loadSongByPath("Songs/74671 P-Light - TRIGGER-HAPPY/PLight - TRIGGERHAPPY (MineC24) [EXHAUST].osu");
-	beatMGR->loadSongByPath("Songs/163078 LiSA - Rising Hope (TV Size)/LiSA - Rising Hope (TV Size) (xChippy) [Hope].osu");
+	//beatMGR->loadSongByPath("Songs/74671 P-Light - TRIGGER-HAPPY/PLight - TRIGGERHAPPY (MineC24) [EXHAUST].osu");
+	//beatMGR->loadSongByPath("Songs/163078 LiSA - Rising Hope (TV Size)/LiSA - Rising Hope (TV Size) (xChippy) [Hope].osu");
 	beatMGR->loadSongByPath("Songs/329657 STEREO DIVE FOUNDATION - Renegade/STEREO DIVE FOUNDATION - Renegade (tutuhaha) [AngelHoney's Insane].osu"); 
-	beatMGR->loadSongByPath("Songs/325158 AKINO from bless4 & CHiCO with HoneyWorks - MIIRO vs Ai no Scenario/AKINO from bless4 & CHiCO with HoneyWorks - MIIRO vs. Ai no Scenario (monstrata) [Tatoe].osu");*/
-	beatMGR->loadSongByPath("Songs/29864 Baby Alice - Pina Colada Boy (Nightcore Mix)/Baby Alice - Pina Colada Boy (Nightcore Mix) (osuplayer111) [Insane].osu");
+	//beatMGR->loadSongByPath("Songs/325158 AKINO from bless4 & CHiCO with HoneyWorks - MIIRO vs Ai no Scenario/AKINO from bless4 & CHiCO with HoneyWorks - MIIRO vs. Ai no Scenario (monstrata) [Tatoe].osu");
+	//beatMGR->loadSongByPath("Songs/29864 Baby Alice - Pina Colada Boy (Nightcore Mix)/Baby Alice - Pina Colada Boy (Nightcore Mix) (osuplayer111) [Insane].osu");
 	
 	
+
+	cRocket* thePlayer = new cRocket();
 	//cTexture rocketTxt;
 	//rocketTxt.createTexture("Images\\rocketSprite.png");
 	//cRocket rocketSprite;
@@ -103,22 +101,16 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	while (WindowManager->isWNDRunning())
     {
 		WindowManager->processWNDEvents(); //Process any window events
-
-        //We get the time that passed since the last frame
-		float elapsedTime = WindowManager->getElapsedSeconds();
-
+		
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
-		
-		
+		beatMGR->update();
 
-		beatMGR->update(elapsedTime);
-		
-		/*rocketSprite.update(elapsedTime);
-		rocketSprite.render();*/
+	
+		thePlayer->update(1);
+		thePlayer->render();
 
 		WindowManager->swapBuffers();
-		Input->clearBuffers(Input->KEYS_DOWN_BUFFER | Input->KEYS_PRESSED_BUFFER);
+		//Input->clearBuffers(Input->KEYS_DOWN_BUFFER | Input->KEYS_PRESSED_BUFFER);
     }
 
 	OGL.shutdown(); //Free any resources
