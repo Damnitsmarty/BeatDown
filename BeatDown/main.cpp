@@ -10,10 +10,9 @@
 #include "cWNDManager.h"
 #include "cInputMgr.h"
 #include "cSprite.h"
-#include "asteroidsGame.h"
 #include "cFontMgr.h"
 #include "cBeatMGR.h"
-#include "cHitsoundManager.h"
+#include "cHitsoundMGR.h"
 
 
 int WINAPI WinMain(HINSTANCE hInstance,
@@ -38,8 +37,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 	// Load Font manager and fonts
 	static cFontMgr* FontManager = cFontMgr::getInstance();
-	FontManager->addFont("Regular", LPCSTR("Fonts/Aller_Rg.ttf"), 24);
-	FontManager->addFont("Light", LPCSTR("Fonts/Aller_Lt.ttf"), 24);
+	FontManager->addFont("Regular", LPCSTR("Fonts/Aller_Rg.ttf"), 96);
+	FontManager->addFont("Light", LPCSTR("Fonts/Aller_Lt.ttf"), 48);
 		
 
     //The example OpenGL code
@@ -69,8 +68,6 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	//Clear key buffers
 	Input->clearBuffers(Input->KEYS_DOWN_BUFFER | Input->KEYS_PRESSED_BUFFER);
 
-	/* initialize random seed: */
-	srand((unsigned int)time(NULL));
 
 
 	//initialize the Hitsound manager
@@ -78,34 +75,31 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	HitsoundManager::getInstance();
 
 	static BeatManager* beatMGR = BeatManager::getInstance();
-	//beatMGR->loadSongByPath("Songs/74671 P-Light - TRIGGER-HAPPY/PLight - TRIGGERHAPPY (MineC24) [EXHAUST].osu");
+	beatMGR->loadSongByPath("Songs/74671 P-Light - TRIGGER-HAPPY/PLight - TRIGGERHAPPY (MineC24) [EXHAUST].osu");
 	//beatMGR->loadSongByPath("Songs/163078 LiSA - Rising Hope (TV Size)/LiSA - Rising Hope (TV Size) (xChippy) [Hope].osu");
-	beatMGR->loadSongByPath("Songs/329657 STEREO DIVE FOUNDATION - Renegade/STEREO DIVE FOUNDATION - Renegade (tutuhaha) [AngelHoney's Insane].osu"); 
+	//beatMGR->loadSongByPath("Songs/329657 STEREO DIVE FOUNDATION - Renegade/STEREO DIVE FOUNDATION - Renegade (tutuhaha) [AngelHoney's Insane].osu"); 
 	//beatMGR->loadSongByPath("Songs/325158 AKINO from bless4 & CHiCO with HoneyWorks - MIIRO vs Ai no Scenario/AKINO from bless4 & CHiCO with HoneyWorks - MIIRO vs. Ai no Scenario (monstrata) [Tatoe].osu");
 	//beatMGR->loadSongByPath("Songs/29864 Baby Alice - Pina Colada Boy (Nightcore Mix)/Baby Alice - Pina Colada Boy (Nightcore Mix) (osuplayer111) [Insane].osu");
 	
 	
 
-	cRocket* thePlayer = new cRocket();
-	//cTexture rocketTxt;
-	//rocketTxt.createTexture("Images\\rocketSprite.png");
-	//cRocket rocketSprite;
-	//rocketSprite.attachInputMgr(Input); // Attach the input manager to the sprite
-	//rocketSprite.setSpritePos(glm::vec2(512.0f, 380.0f));
-	//rocketSprite.setTexture(rocketTxt.getTexture());
-	//rocketSprite.setTextureDimensions(rocketTxt.getTWidth(), rocketTxt.getTHeight());
-	//rocketSprite.setSpriteCentre();
-	//rocketSprite.setRocketVelocity(glm::vec2(0.0f, 0.0f));
+	cPlayer* thePlayer = cPlayer::getInstance();
 
-    //This is the mainloop, we render frames until isRunning returns false
+	//This is the mainloop, we render frames until isRunning returns false
 	while (WindowManager->isWNDRunning())
     {
 		WindowManager->processWNDEvents(); //Process any window events
 		
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		beatMGR->update();
+		
+		string combostr = to_string(thePlayer->combo).append("x");
+		string scorestr = to_string(thePlayer->score);
+		FontManager->getFont("Regular")->printText(combostr.c_str(), FTPoint(10, 700));
+		FontManager->getFont("Regular")->printText(scorestr.c_str(), FTPoint(10, 10));
+		FontManager->getFont("Light")->printText(thePlayer->scoreAdded.c_str(), FTPoint(10, 140));
+		FontManager->getFont("Light")->printText(thePlayer->comboAdded.c_str(), FTPoint(10, 700-140));
 
-	
 		thePlayer->update(1);
 		thePlayer->render();
 
@@ -117,4 +111,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	WindowManager->destroyWND(); //Destroy the program window
 
     return 0; //Return success
+}
+
+void printScores() {
+	
 }

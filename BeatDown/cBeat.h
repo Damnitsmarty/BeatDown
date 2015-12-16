@@ -1,7 +1,7 @@
 #pragma once
 #include "cSprite.h"
-#include "cHitsoundManager.h"
-#include "cRocket.h"
+#include "cHitsoundMGR.h"
+#include "cPlayer.h"
 //#include "cBeatMGR.h"
 
 static const glm::vec2 beatTextureSize = glm::vec2(120,40);

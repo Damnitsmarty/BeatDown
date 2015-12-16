@@ -37,10 +37,13 @@ protected:
 
 	float lengthSQRD(glm::vec2 theLength);
 
+	
+
 public:
 	cSprite();			// Default constructor
 	~cSprite();			// Destructor
 	virtual void render();		// Default render function
+	void renderCollisionBox();
 	void setSpriteTexCoordData();
 	glm::vec2 getSpritePos();  // Return the sprites current position
 	void setSpritePos(glm::vec2 sPosition); // set the position of the sprite

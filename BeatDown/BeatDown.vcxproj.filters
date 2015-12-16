@@ -60,16 +60,16 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cHitsoundManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cFont.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cFontMgr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cRocket.h">
+    <ClInclude Include="cPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cHitsoundMGR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -110,16 +110,16 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cHitsoundManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cFont.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cFontMgr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cRocket.cpp">
+    <ClCompile Include="cPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cHitsoundMGR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

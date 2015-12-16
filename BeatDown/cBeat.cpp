@@ -46,6 +46,7 @@ void cBeat::render()
 	glDisable(GL_TEXTURE_2D);
 
 	glPopMatrix();
+	renderCollisionBox();
 }
 /*
 =================================================================
@@ -57,14 +58,49 @@ void cBeat::update(float currentOffset)
 {
 	float mult = float(offset) / 1000 - float(currentOffset) / 1000;
 	float y = playFieldSize.y - float(speed)*mult;
-	if (y > playFieldSize.y && !soundPlayed) {
-		//check for collision with the player;
-		RECT playerRect = cRocket::getInstance()->getBoundingRect();
-		
-		HitsoundManager::getInstance()->playSound(1);
-		soundPlayed = true;
-	}
 	setSpritePos(glm::vec2(spritePos2D.x, y));
-
 	setBoundingRect(&boundingRect);
+	
+	cPlayer* player = cPlayer::getInstance();
+	int pLeft = player->getSpritePos().x - ((player->getBoundingRect().right - player->getBoundingRect().left) / 2);
+	int pRight = player->getSpritePos().x + ((player->getBoundingRect().right - player->getBoundingRect().left) / 2);
+	int nLeft = getSpritePos().x - ((getBoundingRect().right - getBoundingRect().left) / 2);
+	int nRight = getSpritePos().x + ((getBoundingRect().right - getBoundingRect().left) / 2);
+
+
+	if (y >= 650 && !soundPlayed) {
+		if (nLeft > pLeft && nRight < pRight) { 
+			//if the player's rectangle surrounds the beat completely, it's a full hit
+			//Play the hitsound
+			HitsoundManager::getInstance()->playSound(1);
+			soundPlayed = true;
+			//update score
+			cPlayer::getInstance()->combo += 1;
+			cPlayer::getInstance()->score += 300 * cPlayer::getInstance()->combo;
+			cPlayer::getInstance()->comboAdded = "300!!";
+			cPlayer::getInstance()->scoreAdded = "+" + to_string(300 * cPlayer::getInstance()->combo);
+			setActive(false);
+		}
+		else if ((nLeft <= pLeft && nRight > pLeft) || nRight >= pRight && nLeft < pRight) { 
+			//the player's rectangle only touches the beat. it's a partial hit. add 100*combo
+			//Play the hitsound
+			HitsoundManager::getInstance()->playSound(1);
+			soundPlayed = true;
+
+			cPlayer::getInstance()->combo += 1;
+			cPlayer::getInstance()->score += 100 * cPlayer::getInstance()->combo;
+			cPlayer::getInstance()->comboAdded = "100";
+			cPlayer::getInstance()->scoreAdded = "+" + to_string(100 * cPlayer::getInstance()->combo);
+			setActive(false);
+		}
+		else {
+
+			cPlayer::getInstance()->combo = 0;
+			cPlayer::getInstance()->comboAdded = "MISS!";
+			cPlayer::getInstance()->scoreAdded = "";
+			soundPlayed = true;
+		}
+	}
+
+	
 }

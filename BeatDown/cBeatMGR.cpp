@@ -84,16 +84,13 @@ void BeatManager::update() {
 	background.render();
 	overlay.render();
 	if (!isPlaying) return;										// break if the song isn't playing
-	float offset = float(song.GetCurrentPosition()) / 10000;										// get the time since the start of the song (offset)
+	float offset = float(song.GetCurrentPosition()) / 10000;	// get the time since the start of the song (offset)
 
 	vector<cBeat*>::iterator index = beatsVector.begin();		// iterate over the beats queue
 	while (index != beatsVector.end()) {
 
 		if ((*index)->isActive() == false) {					// if the beat is not activated (yet)
-			int noteOffset = (*index)->offset;
-			if ( noteOffset <= offset) {						// and its activation time has passed
-				(*index)->setActive(true);						//  activate it
-			}
+			
 		}
 		else {													// if the beat is activated
 			(*index)->update(offset);						//  update its position
