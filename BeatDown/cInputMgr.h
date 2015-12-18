@@ -45,6 +45,7 @@ public:
 	void setRightMouseBtn(bool b);				// Save state of mouse button
 	int  getMouseXPos();						// Return mouse X position
 	int  getMouseYPos();						// Return mouse Y position
+	glm::vec2 getMouseXY();						// Return mouse position as a vector
 	bool getLeftMouseBtn();						// Return state of left mouse button.
 	bool getMiddleMouseBtn();					// Return state of middle mouse button.
 	bool getRightMouseBtn();					// Return state of right mouse button.

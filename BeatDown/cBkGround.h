@@ -5,8 +5,7 @@ cBkGround.h
 - Header file for the Background class which is a child of cSprite class
 =================
 */
-#ifndef _CBKGROUND_H
-#define _CBKGROUND_H
+#pragma once
 #include "cSprite.h"
 #include "cTexture.h"
 
@@ -18,4 +17,3 @@ public:
 	void render();		// Default render function
 	void update(float deltaTime);		// Update method
 };
-#endif

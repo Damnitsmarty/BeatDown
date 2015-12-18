@@ -54,7 +54,7 @@ bool cWNDManager::createWND(int width, int height, int bpp)
 	m_windowRect.top = (long)0;  // Set Top Value To 0
 	m_windowRect.bottom = (long)height;   // Set Bottom Value To Requested Height
 
-	// fill out the window class structure
+										  // fill out the window class structure
 	m_windowClass.cbSize = sizeof(WNDCLASSEX);
 	m_windowClass.style = CS_HREDRAW | CS_VREDRAW;
 	m_windowClass.lpfnWndProc = (WNDPROC)cWNDManager::WndProc; //We set our static method as the event handler (WNDPROC)
@@ -68,7 +68,7 @@ bool cWNDManager::createWND(int width, int height, int bpp)
 	m_windowClass.lpszClassName = "winOGL";
 	m_windowClass.hIconSm = LoadIcon(NULL, IDI_WINLOGO);      // windows logo small icon
 
-	// register the windows class
+															  // register the windows class
 	if (!RegisterClassEx(&m_windowClass))
 	{
 		return false;
@@ -79,7 +79,7 @@ bool cWNDManager::createWND(int width, int height, int bpp)
 
 	AdjustWindowRectEx(&m_windowRect, dwStyle, false, dwExStyle);     // Adjust Window To True Requested Size
 
-	// class registered, so now create our window
+																	  // class registered, so now create our window
 	m_hwnd = CreateWindowEx(NULL,                                 // extended style
 		"winOGL",                          // class name
 		WINDOW_TITLE,      // app name
@@ -93,7 +93,7 @@ bool cWNDManager::createWND(int width, int height, int bpp)
 		m_hinstance, // the handle to the application instance
 		this); // no values passed to the window
 
-	// check if window creation failed (hwnd would equal NULL)
+			   // check if window creation failed (hwnd would equal NULL)
 	if (!m_hwnd)
 		return 0;
 
@@ -195,7 +195,7 @@ LRESULT CALLBACK cWNDManager::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARA
 			WGL_CONTEXT_MINOR_VERSION_ARB, 0,
 			0 }; //zero indicates the end of the array
 
-		//Create temporary context so we can get a pointer to the function
+				 //Create temporary context so we can get a pointer to the function
 		HGLRC tmpContext = wglCreateContext(pInstance->m_hdc);
 		//Make it current
 		wglMakeCurrent(pInstance->m_hdc, tmpContext);
@@ -222,7 +222,7 @@ LRESULT CALLBACK cWNDManager::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARA
 
 		pInstance->m_isRunning = true; //Mark our window as running
 	}
-		break;
+	break;
 	case WM_DESTROY: // window destroy
 	case WM_CLOSE: // windows is closing
 		wglMakeCurrent(pInstance->m_hdc, NULL);
@@ -237,7 +237,7 @@ LRESULT CALLBACK cWNDManager::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARA
 		int width = LOWORD(lParam);
 		pInstance->getAttachedWND()->onResize(width, height); //Call the example's resize method
 	}
-		break;
+	break;
 	case WM_KEYDOWN:
 	{
 		if (wParam == VK_ESCAPE) //If the escape key was pressed
@@ -247,12 +247,29 @@ LRESULT CALLBACK cWNDManager::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARA
 		pInstance->m_InputMgr->keyDown(wParam);
 		return 0;
 	}
-
-		break;
 	case WM_KEYUP:
 	{
 		pInstance->m_InputMgr->keyUp(wParam);
+		return 0;
 	}
+	break;
+	case WM_MOUSEMOVE:                      // mouse moved
+	{
+		pInstance->m_InputMgr->mouseXY(lParam);
+		return 0;
+	}
+	case WM_LBUTTONDOWN:                    // left mouse button down
+	{
+		pInstance->m_InputMgr->setLeftMouseBtn(true);
+		pInstance->m_InputMgr->mouseXY(lParam);             // mouse position
+		return 0;
+	}
+	case WM_LBUTTONUP:                      // left mouse button up
+	{
+		pInstance->m_InputMgr->setLeftMouseBtn(false);
+		return 0;
+	}
+	break;
 	default:
 		break;
 	}

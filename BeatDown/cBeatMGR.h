@@ -11,15 +11,17 @@ class BeatManager {
 public:
 	BeatManager();
 	static BeatManager* getInstance();
-	float time();
+
 	void loadSongByPath(string path);
 	float getSpeed(int offset);
 	void playSong();
 	void scheduleBeat(int offset, int column);
 	void update();
+
+
 	vector<cBeat*> beatsVector;
 	bool isPlaying = false;
-
+	
 	Mp3 song;
 	cBkGround background = NULL;
 	cBkGround overlay = cBkGround("Images/OL.png");
@@ -27,10 +29,8 @@ public:
 private:
 	static BeatManager* pInstance;
 
-	
-	float startTime = 0;
-	cTexture* beatTexture;
 
+	cTexture* beatTexture;
 	OsuFileData fileData;
 	
 

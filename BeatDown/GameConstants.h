@@ -15,10 +15,6 @@
 #include "IL\il.h"
 #include "IL\ilu.h"
 #include "IL\ilut.h"
-// Audio
-//#include "OpenAL\al.h"
-//#include "OpenAL\alc.h"
-//#include "OpenAL\alut.h"
 // Maths functions
 #include "glm\glm.hpp"
 #include "glm\gtc\matrix_transform.hpp"

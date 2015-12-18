@@ -217,6 +217,10 @@ int  cInputMgr::getMouseYPos()
 {
 	return mousePos.y;
 }
+glm::vec2 cInputMgr::getMouseXY()
+{
+	return glm::vec2(mousePos.x,mousePos.y);
+}
 /*
 =============================================================================
    Return state of left mouse button.

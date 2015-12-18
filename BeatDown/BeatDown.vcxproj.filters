@@ -18,9 +18,6 @@
     <ClInclude Include="cBkGround.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cBullet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cInputMgr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -72,12 +69,12 @@
     <ClInclude Include="cHitsoundMGR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cBkGround.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cBullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cInputMgr.cpp">
@@ -120,6 +117,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cHitsoundMGR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

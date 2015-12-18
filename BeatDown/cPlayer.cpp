@@ -12,6 +12,7 @@ cPlayer* cPlayer::instance = NULL;
 //constructor
 cPlayer::cPlayer()
 {
+	//Create the texture and update the sprite's position, dimensions and bounding rect
 	texture.createTexture(texturePath);
 	setTextureDimensions(180, texture.getTHeight());
 	setSpritePos(glm::vec2(1280 / 2 , 650+texture.getTHeight()/2));
@@ -51,7 +52,6 @@ void cPlayer::render()
 	glDisable(GL_TEXTURE_2D);
 
 	glPopMatrix();
-	renderCollisionBox();
 }
 /*
 =================================================================
@@ -70,7 +70,7 @@ void cPlayer::update(float deltaTime)
 	{
 		x_change -= 15.0f;
 	}
-	if (m_InputMgr->isKeyDown(VK_SHIFT) || m_InputMgr->isKeyDown(int('S')))
+	if (m_InputMgr->isKeyDown(VK_SHIFT) || m_InputMgr->isKeyDown(VK_SPACE) || m_InputMgr->isKeyDown(int('S')))
 	{
 		x_change *= 2;
 	}

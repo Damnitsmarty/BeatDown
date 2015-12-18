@@ -62,16 +62,35 @@ FTFont* cFont::getFont()
 Render the text using the desired font
 ==========================================================================
 */
-void cFont::printText(LPCSTR text, FTPoint textPos)
+void cFont::printText(LPCSTR text, FTPoint textPos, glm::vec4 colour)
 {
 	glPushMatrix();
-	float x_offset = (theFont->BBox(text).Lower().X());
-	float y_offset = (theFont->BBox(text).Upper().Y());
+	FTBBox b = theFont->BBox(text);
+
+	float x_offset = (b.Lower().X());
+	float y_offset = (b.Upper().Y());
 
 	
 	glTranslatef(textPos.X() - x_offset, textPos.Y() + y_offset , 0);
 	glScalef(1, -1, 1);
-	glColor3f(0.0f, 255.0f, 0.0f);
+	glColor4d(colour.r, colour.g, colour.b, colour.a);
+	theFont->Render(text);
+
+	glPopMatrix();
+}
+void cFont::printTextCentred(LPCSTR text, FTPoint centrePos, glm::vec4 colour) {
+	glPushMatrix();
+	FTBBox b = theFont->BBox(text);
+
+	float x_offset = (b.Lower().X());
+	float y_offset = (b.Upper().Y());
+
+	float x_offset_centre = (b.Upper().X() - b.Lower().X()) / 2;
+	float y_offset_centre = (b.Upper().Y() - b.Lower().Y()) / 2;
+
+	glTranslatef(centrePos.X() - x_offset - x_offset_centre, centrePos.Y() + y_offset - y_offset_centre, 0);
+	glScalef(1, -1, 1);
+	glColor4d(colour.r, colour.g, colour.b, colour.a);
 	theFont->Render(text);
 
 	glPopMatrix();

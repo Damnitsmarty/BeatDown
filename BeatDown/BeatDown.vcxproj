@@ -74,10 +74,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -121,7 +125,7 @@
     <ClInclude Include="cBeat.h" />
     <ClInclude Include="cBeatMGR.h" />
     <ClInclude Include="cBkGround.h" />
-    <ClInclude Include="cBullet.h" />
+    <ClInclude Include="cButton.h" />
     <ClInclude Include="cFont.h" />
     <ClInclude Include="cFontMgr.h" />
     <ClInclude Include="cHitsoundMGR.h" />
@@ -142,7 +146,7 @@
     <ClCompile Include="cBeat.cpp" />
     <ClCompile Include="cBeatMGR.cpp" />
     <ClCompile Include="cBkGround.cpp" />
-    <ClCompile Include="cBullet.cpp" />
+    <ClCompile Include="cButton.cpp" />
     <ClCompile Include="cFont.cpp" />
     <ClCompile Include="cFontMgr.cpp" />
     <ClCompile Include="cHitsoundMGR.cpp" />

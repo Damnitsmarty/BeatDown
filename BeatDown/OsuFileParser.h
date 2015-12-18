@@ -53,10 +53,10 @@ private:
 	static bool parseTimingLine(OsuFileData* data, string line) {
 		smatch match;
 		
-		//TimingPoint line Format: offset , ms/beat, <other stuff we don't need>
+		//TimingPoint line Format: offset , speed, <other stuff we don't need>
 
 		//match the string against the pattern
-		//if valid, the match should capture [offset] and [ms/beat] in two groups
+		//if valid, the match should capture [offset] and [speed] in two groups
 		//return if invalid format
 		if (!regex_match(line, match,regex("(.*?),(.*?),.*"))) return false;
 

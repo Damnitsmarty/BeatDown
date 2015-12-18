@@ -16,8 +16,6 @@ cBeat::cBeat(GLuint texture, int _offset, int _speed, int xpos, int ypos)
 	setTexture(texture);
 	setTextureDimensions(beatTextureSize.x, beatTextureSize.y);
 	setActive(true);
-	//setSpriteCentre();
-
 }	
 
 void cBeat::render()
@@ -46,7 +44,6 @@ void cBeat::render()
 	glDisable(GL_TEXTURE_2D);
 
 	glPopMatrix();
-	renderCollisionBox();
 }
 /*
 =================================================================
@@ -56,7 +53,9 @@ Update the sprite position
 
 void cBeat::update(float currentOffset)
 {
+
 	float mult = float(offset) / 1000 - float(currentOffset) / 1000;
+
 	float y = playFieldSize.y - float(speed)*mult;
 	setSpritePos(glm::vec2(spritePos2D.x, y));
 	setBoundingRect(&boundingRect);
@@ -68,12 +67,12 @@ void cBeat::update(float currentOffset)
 	int nRight = getSpritePos().x + ((getBoundingRect().right - getBoundingRect().left) / 2);
 
 
-	if (y >= 650 && !soundPlayed) {
-		if (nLeft > pLeft && nRight < pRight) { 
+	if (y >= 650 && !passedPlayer) {
+		if (nLeft >= pLeft && nRight <= pRight) { 
 			//if the player's rectangle surrounds the beat completely, it's a full hit
 			//Play the hitsound
 			HitsoundManager::getInstance()->playSound(1);
-			soundPlayed = true;
+			passedPlayer = true;
 			//update score
 			cPlayer::getInstance()->combo += 1;
 			cPlayer::getInstance()->score += 300 * cPlayer::getInstance()->combo;
@@ -81,11 +80,11 @@ void cBeat::update(float currentOffset)
 			cPlayer::getInstance()->scoreAdded = "+" + to_string(300 * cPlayer::getInstance()->combo);
 			setActive(false);
 		}
-		else if ((nLeft <= pLeft && nRight > pLeft) || nRight >= pRight && nLeft < pRight) { 
+		else if ((nLeft < pLeft && nRight > pLeft) || nRight > pRight && nLeft < pRight) { 
 			//the player's rectangle only touches the beat. it's a partial hit. add 100*combo
 			//Play the hitsound
 			HitsoundManager::getInstance()->playSound(1);
-			soundPlayed = true;
+			passedPlayer = true;
 
 			cPlayer::getInstance()->combo += 1;
 			cPlayer::getInstance()->score += 100 * cPlayer::getInstance()->combo;
@@ -98,7 +97,7 @@ void cBeat::update(float currentOffset)
 			cPlayer::getInstance()->combo = 0;
 			cPlayer::getInstance()->comboAdded = "MISS!";
 			cPlayer::getInstance()->scoreAdded = "";
-			soundPlayed = true;
+			passedPlayer = true;
 		}
 	}
 

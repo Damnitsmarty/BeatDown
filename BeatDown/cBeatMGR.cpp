@@ -20,12 +20,6 @@ BeatManager* BeatManager::getInstance()
 	return pInstance;
 }
 
-
-float BeatManager::time() {
-	float curtime = float(GetTickCount()) / 1000.0f;
-	return curtime - startTime;
-}
-
 void BeatManager::loadSongByPath(string path) {
 
 	fileData = OsuFileParser::parseFile(path);
@@ -58,16 +52,12 @@ float BeatManager::getSpeed(int offset) {
 }
 
 void BeatManager::playSong() {
-	
-	
-	startTime = time();
 	isPlaying = song.Play();
 }
 
 
 void BeatManager::scheduleBeat(int offset, int xpos) {
 	float xOffset = (1280 - playFieldSize.x) / 2;	// calculate initial offset
-	//xpos += (column - 1)*columnoffset + column*beatTextureSize.x;							// then account for column size & offset
 	xOffset += beatTextureSize.x / 2;
 
 	float of = float(offset) / 1000;

@@ -18,5 +18,5 @@ public:
 	void update(float currentOffset);						// Beat update method
 
 private:
-	bool soundPlayed = false;
+	bool passedPlayer = false;
 };

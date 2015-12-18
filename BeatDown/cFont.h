@@ -23,7 +23,8 @@ public:
 	cFont(LPCSTR fontFileName, int fontSize);
 	~cFont();
 	FTFont* getFont();
-	void printText(LPCSTR text, FTPoint textPos);
+	void printText(LPCSTR text, FTPoint textPos, glm::vec4 colour);
+	void printTextCentred(LPCSTR text, FTPoint centrePos, glm::vec4 colour);
 
 };
 #endif
